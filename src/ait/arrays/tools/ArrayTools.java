@@ -11,6 +11,16 @@ public class ArrayTools {
         return max;
     }
 
+    public static int minArray(int[] arr) {
+        int min = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+
     public static int search(int[] arr, int value) {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == value) {
@@ -36,6 +46,7 @@ public class ArrayTools {
         a = a * a;
         System.out.println("a in method = " + a);
     }
+
     public static void printReverseArray(int[] arr) {
         for (int i = arr.length - 1; i >= 0; i--) {
             System.out.println("[" + i + "] = " + arr[i]);
@@ -62,6 +73,7 @@ public class ArrayTools {
         }
         return res;
     }
+
     public static void reverseArray1(int[] arr) {
         for (int i = 0, j = arr.length - 1; i < j; i++, j--) {
             int t = arr[i];
@@ -81,6 +93,7 @@ public class ArrayTools {
     public static double average(int[] arr) {
         return 1. * sumArray(arr) / arr.length;
     }
+
 
     public static int sumArray(int[] arr) {
         int sum = 0;
@@ -129,15 +142,19 @@ public class ArrayTools {
         return -l - 1;
     }
 
+    private static void bubblingSort(int[] arr, int i) {
+        for (int j = 0; j < arr.length - 1 - i; j++) {
+            if (arr[j] > arr[j + 1]) {
+                int t = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = t;
+            }
+        }
+    }
+
     public static void bubbleSort(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = 0; j < arr.length - 1 - i; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    int t = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = t;
-                }
-            }
+            bubblingSort(arr, i);
         }
     }
 
